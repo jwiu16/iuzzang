@@ -1,0 +1,256 @@
+@charset "UTF-8";
+
+/* ============= 본문에 적용할 ============== css */
+
+
+#join_top { /* 회원가입 진행사항 표시부분 */
+	margin: 30px 0; /* 위아래 띄우기 */
+	text-align: center;	/* 가운데정렬 */
+}
+
+#join_top>span:not(#this) { /* 회원가입 진행사항 표시부분 */
+	background-color: #eeeeee; /* 배경색 회색 */
+    color: #000;
+	font-weight: bold;
+	margin: 0;
+	padding: 15px 30px; /* 크기 키우기 */
+}
+
+#join_top>#this { /* 회원가입 진행사항 표시부분 */
+	background-color: #433581;
+    color: white;
+	font-weight: bold;
+	margin: 0;
+	padding: 15px 30px; /* 크기 키우기 */
+}
+
+form { /* 정보 입력창 */
+	margin: 0 auto; /* 가운데정렬 */
+	width: 612px;  /* 넓이 */
+	padding-bottom: 50px;
+}
+
+#join_button { /* 모든 버튼 */
+	margin: 30px; /* 주변 띄우고 */
+	text-align: center; /* 가운데정렬 */
+}
+
+#notice { /* 하단 알림문구 */
+	font-size: 14px; /* 폰트크기 */
+	margin-bottom: 30px; /* 아래쪽 여백 */
+}
+
+input[type="button"], input[type="submit"] { /* 모든 버튼에 */
+	padding: 5px 15px;
+    background-color: #433581;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+input[type="button"]:hover, input[type="submit"]:hover {
+	background-color: #331f62;
+}	
+
+input[type="submit"] { /* 등록 버튼에 */
+	text-align: center;
+}
+
+textarea { /* 텍스트박스 */
+  resize: none; /* 크기고정 */
+  width: 600px; /* 너비지정 */
+  height: 120px; /* 높이지정 */
+  border: 1.5px solid #AFAFB2; /* 테두리 */
+}
+
+
+/* ======== 본인인증 페이지에 적용할 css ======== */
+#api { /* API 아이콘 */
+	text-align: center; /* 가운데정렬 */
+	margin: 30px; /* 주변 여백 */
+}
+
+#api>div {
+	display: inline-block;
+	margin-left: 20px;	
+	margin-right: 20px;
+}
+
+#email1 { /* 이메일 인증부분 */
+	text-align: center; /* 가운데정렬 */
+	margin: 30px; /* 주변 여백 */
+}
+
+#email2 { /* 이메일 아이콘 */
+	display: inline-block; /* 나란히 배치하기 위해 속성 변경 */
+	vertical-align: middle;
+	margin: 5px;
+}
+
+#email3 { /* 이메일 입력, 인증 부분 */
+	display: inline-block; /* 나란히 배치하기 위해 속성 변경 */
+	vertical-align: middle;
+	margin: 15px;
+}
+
+#email3>input[type="text"] { /* 텍스트입력창 */
+	margin: 10px 0 0 0;
+	box-sizing: border-box;
+	padding: 15px;
+	display: inline-block;
+	border: none;
+	background: #f1f1f1;
+	height: 30px; /* 높이지정 */
+	width: 200px; /* 넓이지정 */
+}
+
+#email3>input[type="button"], #email3>input[type="submit"] {
+	width: 120px;
+}
+
+#checkResult {
+	height: 13px;
+	font-size: 13px;
+	text-align: left;
+	padding-left: 20px;
+}
+
+/* ------------ 이메일 발송 모달창 -------------- */
+.modal {
+	display: none; /* 모달창 숨김 */
+	position: fixed; /* 화면 위치 고정 */
+	z-index: 9999; /* 내용 위에 표시 */
+	left: 0;
+	top: 0;
+	width: 100%; /* 전체 너비 */
+	height: 100%; /* 전체 높이 */
+	overflow: hidden;
+	background-color: rgba(0,0,0,0.4); /* 약간의 투명도 */
+	text-align: center;
+}
+
+/* 모달 컨텐츠 */
+.modal-content {
+	background-color: #fefefe;
+	margin: 20% auto; /* 페이지 중앙에 위치 */
+	padding: 20px;
+	border: 1px solid #888;
+	border-radius: 20px;
+	width: 300px; /* 모달창의 너비 */
+	height: 200px;
+}
+
+#modal-subject {
+	margin-top: 50px;
+	line-height: 30px;
+}
+
+/* 닫기 버튼 */
+.close {
+	color: #aaa;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+}
+
+.close:hover, .close:focus {
+	color: black;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+/* 모달창 띄웠을 시 body 영역의 스크롤바 삭제 */
+.not_scroll{
+   	overflow: hidden;
+}
+
+
+
+
+
+/* ======== 동의 페이지에 적용할 css ======== */
+#agree { /* 동의영역 */
+	margin-top: 30px; /* 상단여백 */
+}
+
+#agree>* { /* 동의영역 전체 요소에 */
+	margin: 5px; /* 여백 */
+}
+
+#required { /* 필수입력사항 글자 */
+	font-weight: bold; /* 진하게 */
+	color: #433581; /* 빨간색으로 */
+}
+
+.joinbtn {
+	text-align: center;
+	margin: 20px;
+}
+
+/* ======== 가입 폼 페이지에 적용할 css ======== */
+
+#join_center input[type=text], #join_center input[type=password], #join_center input[type=tel] {
+	box-sizing: border-box;
+	width: 612px;
+	padding: 15px;
+	margin: 5px 0 0 0;
+	display: inline-block;
+	border: none;
+	background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+hr {
+  margin-bottom: 25px;
+}
+
+#gender {
+   	text-align: center;
+   	height: 40px;
+}
+
+#gender input[type=radio]{
+    display: none;
+}
+
+#gender input[type=radio]+label{
+    display: inline-block;
+    cursor: pointer;
+    height: 35px;
+    width: 300px;
+    margin: 5px 0;
+    border: 1px solid #333;
+    text-align: center;
+    font-weight:bold;
+    font-size:17px;
+    line-height: 35px;
+}
+
+#gender input[type=radio]+label{
+    background-color: #fff;
+    color: #AFAFB2;
+}
+
+#gender input[type=radio]:checked+label{
+    background-color: #eeeeee;
+    color: #000;
+}
+
+.resultArea {
+	height: 15px;
+	font-size: 14px;
+	padding-left: 10px;
+	margin-bottom: 15px;
+}
+
+
+/* ======== 가입 완료 페이지에 적용할 css ======== */
+#completion_msg { /* 가입 완료 메세지 */
+	text-align: center; /* 글자 가운데정렬 */
+	margin: 0 auto; /* 배치 가운데정렬 */
+}
+

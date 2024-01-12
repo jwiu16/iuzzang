@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itwillbs.c5d2308t1.mapper.ReserveMapper">
+
+	<select id="selectMovietitle" resultType="com.itwillbs.c5d2308t1.vo.ReserveVO">
+		SELECT movie_title,movie_rating,movie_poster
+		FROM movies
+		WHERE movie_status = 1
+	</select>
+	
+	<select id="selectTheaterName" resultType="com.itwillbs.c5d2308t1.vo.ReserveVO">
+		SELECT theater_name 
+		FROM theaters
+	</select>
+	
+	<select id="selectPlayDate" resultType="com.itwillbs.c5d2308t1.vo.ReserveVO">
+		SELECT DISTINCT play_date
+		FROM plays
+		WHERE play_date >  Date(now())
+		ORDER BY play_date ASC;
+	</select>
+	
+	
+	<select id="selectSeatName" resultType="com.itwillbs.c5d2308t1.vo.ReserveVO">
+		SELECT seat_name
+		FROM resView 
+		WHERE play_date = #{play_date}
+		AND room_name = #{room_name}
+		AND theater_name = #{theater_name}
+		AND play_start_time = #{play_start_time}
+		AND seat_status = 1
+	</select>
+	<!--  movie_select ajax1 -->
+	<select id="selectSchedule" resultType="com.itwillbs.c5d2308t1.vo.ReserveVO">
+		SELECT room_name, play_start_time, play_end_time
+		FROM MPRT
+		WHERE play_date = #{play_date}
+		AND movie_title =#{movie_title}
+		AND theater_name = #{theater_name}
+	</select>
+	<!--  movie_select ajax2 -->
+	<select id="selectMTB" resultType="com.itwillbs.c5d2308t1.vo.ReserveVO">
+		SELECT *
+		FROM MPRT 
+		WHERE
+		<choose>
+			<when test="movie_title != null and theater_name != null">
+				movie_title = #{movie_title}
+				AND theater_name = #{theater_name}
+			</when>
+			<when test="movie_title != null and play_date != null">
+				movie_title = #{movie_title}
+				AND play_date = #{play_date}
+			</when>
+			<when test="play_date != null and theater_name != null">
+				theater_name = #{theater_name}
+				AND play_date = #{play_date}
+			</when>
+			<when test="movie_title != null">
+				movie_title = #{movie_title}
+			</when>
+			<when test="theater_name != null">
+				theater_name = #{theater_name}
+			</when>
+			<when test="play_date != null">
+				play_date = #{play_date}
+			</when>
+		</choose>
+		AND movie_status != 2
+		AND play_date >  Date(now())	
+		ORDER BY play_date ASC	
+	</select>
+	
+	<select id="selectPlayEndTime" resultType="String">
+		SELECT play_end_time 
+		FROM MPRT  
+		WHERE movie_title = #{movie_title}
+		AND theater_name = #{theater_name}
+		AND play_date = #{play_date}
+		AND room_name = #{room_name}
+		AND play_start_time = #{play_start_time}
+	</select>
+	
+
+	
+	<!-- 마이페이지에서 예매내역조회 -->
+	<select id="selectMyReserveList" resultType="map">
+		SELECT *
+		FROM resView
+		WHERE member_id = #{sId}
+		<if test="!searchKeyword.equals('')">
+			AND
+				movie_title LIKE '%${searchKeyword}%'
+		</if>
+		ORDER BY payment_id DESC
+		LIMIT #{page.startRow}, #{page.listLimit}
+	</select>
+	
+	<!-- 마이페이지에서 예매상세정보 조회 -->
+	<select id="selectresInfoDetail" resultType="map">
+		SELECT *
+		FROM resView
+		WHERE payment_id = #{payment_id}
+	</select>
+	
+	<!-- 	마이페이지에서 예매취소 -->
+	<update id="updateResCancle">
+		UPDATE payments SET payment_status = 0
+		WHERE payment_id = #{payment_id}
+	</update>
+	
+	<!-- 	좌석 예매 취소 -->
+	<update id="updateSeatCancle">
+		UPDATE seats SET seat_status = 0
+		WHERE seat_id = #{seat_id}
+	</update>
+
+	<!-- seats table insert -->
+	<insert id="insertSeats">
+		INSERT INTO seats
+		VALUES(
+			null
+			,#{seat_name}
+			,1
+			,(SELECT play_id 
+			  FROM PRT   
+			  WHERE play_date = #{play_date}
+			  AND play_start_time = #{play_start_time}
+			  AND room_name = #{room_name}
+			  AND theater_name = #{theater_name})
+		)
+	</insert>
+	
+	<!-- payment table insert -->
+	<insert id="insertPayment">
+		INSERT INTO payments
+		VALUES(
+			null
+			,(SELECT CONCAT('P',prt.play_id ,'S',s.seat_id)
+			  FROM PRT prt JOIN seats s
+			  ON prt.play_id = s.play_id
+			  WHERE seat_name = #{seat_name}
+			  AND play_date = #{play_date}
+			  AND play_start_time = #{play_start_time}
+			  AND theater_name = #{theater_name}
+			  AND room_name = #{room_name}
+			  AND seat_status = '1'
+			)
+			,now()
+			,'카드이름'
+			,'카드번호'
+			,#{payment_total_price}
+			,1			
+		)
+	</insert>
+	
+		<!-- reserve table insert -->
+	<insert id="insertReserve">
+		INSERT INTO reserve
+		VALUES(
+			(SELECT payment_id
+			FROM payments
+			WHERE payment_name = (SELECT CONCAT('P',prt.play_id ,'S',s.seat_id)
+								  FROM PRT prt JOIN seats s
+								  ON prt.play_id = s.play_id
+								  WHERE s.seat_name = #{seat_name}
+								  AND prt.play_date = #{play_date}
+								  AND prt.play_start_time = #{play_start_time}
+								)
+			)
+			,#{sId}
+			,(SELECT seat_id
+			 FROM seats
+			 WHERE seat_name = #{seat_name}
+			 AND play_id = (SELECT play_id 
+						    FROM PRT   
+						    WHERE play_date = #{play_date}
+						    AND play_start_time = #{play_start_time}
+						    AND room_name = #{room_name}
+						    AND theater_name = #{theater_name}
+						    )
+			)
+		)
+	</insert>
+	
+	<!-- 예매완료 Step02.페이지 결제정보출력 -->
+	<select id="selectPayment" resultType="com.itwillbs.c5d2308t1.vo.ReserveVO">
+		SELECT *
+		FROM resView
+		WHERE
+			movie_title = #{movie_title}
+			AND theater_name = #{theater_name}
+			AND room_name = #{room_name}
+			AND play_date = #{play_date}
+			AND play_start_time = #{play_start_time}
+			AND seat_name = #{seat_name}
+			AND payment_total_price = #{payment_total_price}
+			AND member_id = #{sId}
+	</select>
+	
+	<select id="selectMemberInfo" resultType="map">
+		SELECT *
+		FROM members
+		WHERE member_id = #{sId}
+	</select>
+	
+	<select id="selectMypageInfo" resultType="map">
+		SELECT *
+		FROM resView 
+		WHERE payment_name LIKE 'P%'
+		<choose>
+			<when test="sId.equals('admin')"></when>
+			<otherwise>AND member_id = #{sId}</otherwise>
+		</choose>
+		ORDER BY payment_id DESC
+		LIMIT 2
+	</select>
+	<!-- 마이페이지 예매내역 페이징 처리를 위한 게시물 개수 조회 작업 -->
+	<select id="selectMyReserveListCount" resultType="int">
+		SELECT COUNT(*)
+		FROM resView
+		WHERE member_id = #{sId}
+		<if test="!searchKeyword.equals('')">
+			AND
+				movie_title LIKE '%${searchKeyword}%'
+		</if>
+	</select>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

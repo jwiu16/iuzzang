@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.itwillbs.c5d2308t1.mapper.JoinMapper">
+	<!-- 회원 정보 등록 - INSERT -->
+	<!-- 구문 실행 후 자동으로 int 타입 결과값 리턴됨 -->
+	<insert id="insertMember">
+		INSERT INTO members
+		VALUES (
+			#{member_id} 
+			, #{member_name}
+			, #{member_email}
+			, #{member_birth}
+			, now()
+			, #{member_phone}
+			, 1
+			<choose>
+				<when test="member_passwd != null and !member_passwd.equals('')">
+					, #{member_passwd}
+				</when>
+				<otherwise>
+					, ''
+				</otherwise>
+			</choose>
+			, #{member_gender}
+		)		
+	</insert>
+	
+	<select id="selectDup" resultType="member">
+		SELECT * 
+		FROM members
+		WHERE member_id = #{member_id} OR member_email = #{member_email} OR member_phone = #{member_phone}
+	</select>
+	
+	<select id="selectMember" resultType="int">
+		SELECT count(*)
+		FROM members
+		WHERE member_id = #{member_id}
+	</select>
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,725 @@
+@charset "UTF-8";
+
+/* ============= 전체 게시판에 적용할 css ============== */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+	margin-left: 200px;
+	height: 100%;
+	scroll-behavior: smooth;
+}
+
+body {
+	height: 100%;
+	position: relative;	
+	font-family: 'Noto Sans KR', sans-serif;
+	margin: 0;
+	overflow-x: hidden;
+}
+
+#wrapper {
+	min-height: 100%;
+	position: relative;
+	width: 100%;
+}
+
+
+/* ------------- 관리자페이지 네비바 부분 -------------- */
+navbar { 
+	display: inline-block;
+	width: 200px;
+	margin: 0;
+}
+
+#side_logo {
+	width: 180px;
+	height: 70px;
+	display: inline-block;
+	margin: 20px 5px;
+}
+
+.admin_nav_title {
+	width: 200px;
+	color: white;
+	margin: 20px 0 5px 10px;	
+	font-size: 16px;
+}
+
+.sidenav {
+	height: 100%;
+	width: 200px;
+	position: fixed;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	background-color: #242424;
+	overflow-x: hidden;
+	padding-top: 20px;
+}
+
+.sidenav a:not(#side_logo) {
+	padding: 6px 8px 6px 20px;
+	text-decoration: none;
+	font-size: 18px;
+	color: #818181;
+	display: block;
+	border: none;
+	background: none;
+	width: 100%;
+	text-align: left;
+	cursor: pointer;
+	outline: none;
+}
+
+.sidenav a:hover {
+	color: #f1f1f1;
+	font-weight: bolder;
+}
+
+/* ------------- 관리자페이지 네비바 끝 -------------- */
+
+
+#content {
+	display: inline-block;
+	margin: 0 auto;
+	width: 100%;
+}
+
+#top_area_admin {
+	height: 60px;
+	width: 100%;
+	text-align: right;
+	background-color: #242424;
+}
+
+#top_button {
+	padding-right: 15px;
+}
+
+#top_area_admin a {
+	display: inline-block;
+	margin: 5px;
+	width: 45px;
+	height: 45px;
+}
+
+#top_area_admin button {
+/* 	background-color: #c0c0c0; */
+	background-color: transparent;
+ 	border: none;
+	margin: 0;
+	text-align: center;
+	padding: 5px;
+	width: 45px;
+	height: 45px;
+}
+
+#top_area_admin img {
+	width: 30px;
+	height: 30px;
+	margin-top: 5px;
+}
+
+#top_area_admin img:hover {
+	 cursor: pointer; /* 커서 변경 */
+}
+
+.tooltip {
+	position: relative;
+	display: inline-block;
+	border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+	visibility: hidden;
+	width: 120px;
+	background-color: black;
+	color: #fff;
+	text-align: center;
+	border-radius: 6px;
+	padding: 5px 0;
+	position: absolute;
+	z-index: 1;
+	top: 150%;
+	left: 50%;
+	margin-left: -60px;
+}
+
+.tooltip .tooltiptext::after {
+	content: "";
+	position: absolute;
+	bottom: 100%;
+	left: 50%;
+	margin-left: -5px;
+	border-width: 5px;
+	border-style: solid;
+	border-color: transparent transparent black transparent;
+}
+
+.tooltip:hover .tooltiptext {
+	visibility: visible;
+}
+
+/* ------------ 툴팁 끝 -------------- */
+
+
+#h01 {
+	margin: 30px 0 0 0;
+	padding-left: 20px;
+	font-size: 30px;
+}
+
+#admin_main {
+	width: 1200px; /* 너비 800지정 */
+	margin: 10px auto;
+	min-height: 600px;	
+}
+
+#admin_sub {
+	width: 1200px; /* 너비 800지정 */
+	margin: 10px auto;	
+	min-height: 600px;
+}
+
+
+form:not(#deletePlay) {
+	margin-bottom: 20px;
+}
+
+a {
+	color: #000;
+	text-decoration: none;
+}
+
+#admin_main th, #admin_main td {
+	height: 40px;
+}
+
+#admin_main a:not(.pagination a) {
+	text-decoration: none;
+	color:#666;
+}
+
+#admin_sub th, #admin_sub td {
+	height: 30px;
+}
+
+
+#content_table {
+	text-align: left;
+	padding: 10px;
+	width: 1100px;
+	margin: 0;
+	white-space: pre-wrap;
+	min-height: 250px;
+	font-family: "Noto Sans KR";
+}
+
+#admin_sub input[type="text"], #admin_sub input[type="password"] {
+	border: none;
+}
+
+/* 검색창 div영역 오른쪽정렬 */
+#admin_search, #admin_writer {
+	text-align: right;
+}
+
+#serch_submit, #admin_writer2 {
+	display: inline-block;
+}
+
+/* 글쓰기 영역에 적용 */
+#select, #theater_id, #room_id, #play_date, 
+	#modifyTheater, #modifyRoom, #modifyDate {
+	text-align: center;
+	width: 130px;
+	height: 25px;
+}
+
+#play_start_time, #modifyStart {
+	text-align: center;
+	width: 120px;
+	height: 25px;
+}
+
+#play_end_time, #modifyEnd {
+	text-align: center;
+	width: 120px;
+	height: 26px;
+}
+
+#movie_id, #modifyMovie {
+	text-align: center;
+	width: 300px;
+	height: 25px;	
+}
+
+#id {
+	text-align: center;
+	width: 200px;
+}
+
+#subject {
+	width: 1100px;
+}
+
+textarea {
+	resize: none; /* 크기고정 */
+	width: 1000px; /* 너비지정 */
+	min-height: 250px; /* 높이지정 */
+	margin: 5px;
+	font-family: sans-serif;
+	font-size: 15px;
+}
+
+select {
+	height: 30px;
+}
+
+
+/* ========================== 가운데 정렬할 버튼 ============================= */
+#btnCtr {
+	text-align: center;
+}
+
+
+/* ======== 전체 영역 테이블에 적용할 css ======== */
+
+table {
+	border-collapse: collapse; /* 칸 사이 간격 없애기 */
+	border: 1px solid #C4C4C4; /* 표 줄 */ 
+	width: 1200px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+th {
+	background:#ebebeb;
+	color:#383838;
+	border: 1px solid #C4C4C4;
+}
+
+td {
+	border:1px solid #dfdfdf;
+	font-size:1.083em;
+	color:#666;
+}
+
+.post_name {
+	text-align: left;
+}
+
+/* ======== 전체 영역 입력상자에 적용할 css ======== */
+input[type="date"], input[type="text"], input[type="password"], theater_num {
+	height: 25px;
+}
+
+/* ============= 전체 버튼에 적용할 css ================== */
+input[type="button"], input[type="submit"], input[type="reset"] { /* 모든 버튼에 */
+	padding: 6px 15px; /* 안쪽 여백 */
+    background-color: #505050; /* 배경색 진회색 */
+    color: white; /* 글씨색 흰색*/
+    border: none; /* 테두리 없음 */
+    cursor: pointer; /* 커서 변경 */
+}
+
+input[type="button"]:hover, input[type="submit"]:hover {  /* 모든 버튼에 마우스오버 시 */
+	background-color: #bebebe; /* 배경색 연회색 */
+}
+
+#admin_member{
+	color: black;
+	background-color: #FFCCCC; /* 회원일때 색깔 */
+	padding: 2px 3px;
+	border-radius: 2px;
+	font-size: 15px;
+}
+#admin_Bmember{
+	color: black;
+	background-color: #E0E0E0; /* 비회원일때 색깔 */
+	padding: 2px 3px;
+	border-radius: 2px;
+	font-size: 15px;
+}
+#admin_Cmember{
+	color: black;
+	background-color: #CCCCFF; /* 탈퇴 일때 색깔 */
+	padding: 2px 3px;
+	border-radius: 2px;
+	font-size: 15px;
+}
+
+#payment_Cstatus{
+	color: black;
+	background-color: #FFCCCC; /* 회원일때 색깔 */
+	padding: 2px 3px;
+	border-radius: 2px;
+	font-size: 15px;
+}
+
+#payment_Bstatus{
+	color: black;
+	background-color: #CCCCFF; /* 탈퇴 일때 색깔 */
+	padding: 2px 3px;
+	border-radius: 2px;
+	font-size: 15px;
+}
+
+#movie_update, #schedule_search, #pay_Search, #member_Search, #review_Search, #event_update {
+	text-align: right;
+	margin-bottom: 20px;
+}
+
+#admin_writer {
+	text-align: right;
+	margin-top: 20px;
+}
+
+/* ============ 전체 페이지번호에 적용할 css ============ */
+
+/* Pagination links */
+.pagination {
+	padding:30px 0 80px 0px;
+	text-align: center;
+}
+
+
+.pagination a {
+  color: black;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color .3s;
+}
+
+/* Style the active/current link */
+.pagination a.active {
+  background-color: #505050;
+  color: white;
+}
+
+/* Add a grey background color on mouse-over */
+.pagination a:hover:not(.active) {background-color: #ddd;}
+
+
+/*-------------------- 관리자 메인 -------------------------- */
+.chart {
+	width: 550px;
+	display: inline-block;
+	margin: 20px;
+	margin-bottom: 40px;
+}
+
+
+/* =============== 상영일정관리 ==================== */
+.schedule {
+	margin-bottom: 100px;
+}
+
+#lbl { /* label 태그 영역 */
+	background-color: #ebebeb; /* 배경색 회색 */
+	border-radius: 3px; /* 모서리 둥글게 */
+	font-size: 12px; /* 글자 크기 줄이기 */
+	padding: 7.2px; /* 안쪽 여백 채우기 */
+	margin-left: 15px;
+}
+
+#schedule_search input {
+	border-color: #C4C4C4;
+}
+
+
+/* =============== 회원 관리 페이지 =================== */
+/* #modify_table { */
+/* 	width: 600px; */
+/* } */
+
+#member_modify {
+	width: 800px; /* 너비 800지정 */
+	margin: 10px auto;	
+	min-height: 600px;
+}
+
+/* a { */
+/* 	color: #000; */
+/* 	text-decoration: none; */
+/* } */
+
+/* #admin_main th, #admin_main td { */
+/* 	height: 40px; */
+/* } */
+
+/* #admin_main a:not(.pagination a) { */
+/* 	text-decoration: none; */
+/* 	color:#666; */
+/* } */
+
+#member_modify #modify_table {
+	width: 100%;
+}
+
+
+/* 폼의 div 영역 폰트와 높이 조절 */
+#member_modify #modify_table div {
+	font-size: 14px;
+	height: 15px;
+}
+
+#modify_table th {
+	width: 150px;
+	height: 60px;
+}
+
+#member_modify td {
+	height: 60px;
+}
+
+#member_modify input[type="text"], #member_modify input[type="password"] {
+	border: none;
+}
+
+
+
+/* =============== 분실물 페이지 =================== */
+#lostNfound #response {
+	background-color: #C4C4C4;
+	color: #000000;
+}
+
+/* =============== 1대1문의 관리 페이지 =================== */
+#admin_main #btnOneOnOneresponse {
+	background-color: #C4C4C4;
+	color: #000000;
+}
+
+/* 관리자 페이지 게시판 중 높이가 낮은 표에 적용  */
+#shortTable {
+	margin-top: 20px;
+	height: 500px;
+}
+
+#shortTableContent {
+	height: 180px;
+}  
+/* =============== 영화 조회, 등록, 수정,검색 페이지 정보 표시 =================== */
+/* 영화 목록조회 게시판의 제목 */
+#movieList #movieTitle, #eventList #eventTitle {
+	max-width: 200px; /* 최대 길이 */
+	white-space: nowrap; /* 줄바꿈없이 표시 */
+	overflow: hidden; /* 요소영역을 초과하면 표시안되게 설정 */
+ 	text-overflow: ellipsis; /* 초과한 텍스트를 '...'으로 설정 */
+}
+
+/* 테이블 영역 */
+#movieTable {
+	margin-bottom: 10px;
+}
+
+#movieTable div {
+	font-size: 14px;
+	height: 15px;
+}
+
+/* 상영상태 셀렉트 박스 */
+#status_select {
+	float: left; /* 왼쪽으로 이동 */
+}
+
+/* 검색창 */
+#movie_Search, #event_Search {
+	float: right; /* 오른쪽으로 이동 */
+}
+
+/* ----------------- 박스오피스 영화 페이지 ----------------- */
+/* 영화 검색창 영역 */
+#searchArea {
+	text-align: center;
+}
+/* 박스오피스를 조회할 날짜 입력창 */
+#searchArea #dateSelect {
+/* 	border: none; */
+	width: 100px; /* 너비 */
+	font-weight: 500;
+}
+/* 박스오피스의 영화 표시 셀렉트박스 */
+#searchArea #dailyBox {
+	width: 350px;
+	height: 30px;
+}
+/* 포스터가 표시될 영역 */
+#movieTable #posterArea {
+	height: 310px !important;
+}
+/* 짧은 입력창 표시 */
+#movieTable .shortInput { /* 회색 블럭 내 input type="text" 영역 */
+	border:none; /* 테두리 없애기 */
+	/* background-color: #ccc; */
+	/* => 텍스트 출력창 표시하기 위해 임시로 색상 설정 X */
+	height: 50px; /* 높이 */
+	width: 250px; /* 너비 */
+}
+/* 긴 입력창 표시 */
+#movieTable .longInput {
+	border:none; /* 테두리 없애기 */
+	height: 50px; /* 높이 */
+	width: 550px; /* 너비 */
+}
+
+#movieTable #movie_status {
+	border:none; /* 테두리 없애기 */
+	/* background-color: #ccc; */
+	/* => 텍스트 출력창 표시하기 위해 임시로 색상 설정 X */
+	height: 50px; /* 높이 */
+	width: 250px; /* 너비 */
+}
+
+/* 날짜 입력창 표시 */
+#movieTable input[type="date"] { /* 회색 블럭 내 input type="date" 영역 */
+	border:none; /* 테두리 없애기 */
+	/* background-color: #ccc; */
+	/* => 텍스트 출력창 표시하기 위해 임시로 색상 설정 X */
+	height: 50px; /* 높이 */
+	width: 250px; /* 너비 */
+}
+
+#adminSearch{
+	margin-left: 50px;
+}
+
+/* =============== 예매 상세 페이지의 정보를 표시할 회색 블럭 =================== */
+#grayDiv { /* 회색 블럭을 감싸고 있는 전체 영역에 대한 설정 */
+	text-align: center; /* 가운데 정렬 */
+	margin-left: 2.5px; /* 왼쪽 여백 */
+}
+
+#grayBlock {
+	background-color: #ccc; /* 배경색 회색 */
+	width: 300px; /* 너비 */
+	height: 100px; /* 높이 */
+	border: none; /* 테두리 없애기 */ 
+	border-radius: 10px; /* 모서리 둥글게 */
+	display: inline-block; /* 한 줄에 배치 */
+	margin-bottom: 10px; /* 여백 */
+	margin-left: 3px; /* 여백 */
+	
+}
+
+#grayBlock>input[type="text"] { /* 회색 블럭 내 input type="text" 영역 */
+	border:none; /* 테두리 없애기 */
+	/* background-color: #ccc; */
+	/* => 텍스트 출력창 표시하기 위해 임시로 색상 설정 X */
+	height: 65px; /* 높이 */
+	width: 250px; /* 너비 */
+}
+
+#grayBlock>input[type="date"] { /* 회색 블럭 내 input type="date" 영역 */
+	border:none; /* 테두리 없애기 */
+	/* background-color: #ccc; */
+	/* => 텍스트 출력창 표시하기 위해 임시로 색상 설정 X */
+	height: 65px; /* 높이 */
+	width: 250px; /* 너비 */
+}
+
+#grayBlockWide { /* 정보 표시할 넓은 회색 블럭*/
+	background-color: #ccc; /* 배경색 회색 */
+	width: 700px; /* 너비 */
+	height: 100px; /* 높이 */
+	border: none; /* 테두리 없애기 */ 
+	border-radius: 10px; /* 모서리 둥글게 */
+	margin-bottom: 10px; /* 여백 */
+	display: inline-block; /* 가운데 정렬을 위함 */
+	
+}
+
+#grayBlockWide>input[type="text"] { /* 넓은 회색 블럭 내 input type="text" 영역 */
+	border:none; /* 테두리 없애기 */
+	/* background-color: #ccc; */
+	/* => 텍스트 출력창 표시하기 위해 임시로 색상 설정 X */
+	height: 65px; /* 높이 */
+	width: 650px; /* 너비 */
+}
+
+/* ========== 이벤트 항목의 모달창 ========== */
+
+/* 짧은 입력창 표시 */
+#eventTable .longInput { /* 회색 블럭 내 input type="text" 영역 */
+	border:none; /* 테두리 없애기 */
+	height: 50px; /* 높이 */
+	width: 550px; /* 너비 */
+}
+
+/* 날짜 입력창 표시 */
+#eventTable input[type="date"] { /* 회색 블럭 내 input type="date" 영역 */
+	border:none; /* 테두리 없애기 */
+	/* background-color: #ccc; */
+	/* => 텍스트 출력창 표시하기 위해 임시로 색상 설정 X */
+	height: 50px; /* 높이 */
+	width: 250px; /* 너비 */
+}
+
+.event_img {
+	cursor: pointer;
+}
+
+.modal {
+	display: none; /* 모달창 숨김 */
+	position: fixed; /* 화면 위치 고정 */
+	z-index: 9999; /* 내용 위에 표시 */
+	left: 0;
+	top: 0;
+	width: 100%; /* 전체 너비 */
+	height: 100%; /* 전체 높이 */
+	overflow: auto; /* 모달창에 스크롤 추가 */
+	background-color: rgba(0,0,0,0.4); /* 약간의 투명도 */
+}
+
+/* 모달 컨텐츠 */
+.modal-content {
+	background-color: #fefefe;
+	margin: 5% auto; /* 페이지 중앙에 위치 */
+	padding: 20px;
+	border: 1px solid #888;
+	border-radius: 20px;
+	width: 30%; /* 대부분의 너비 */
+}
+
+/* 모달 컨텐츠의 이미지 */
+.modal-content img {
+	max-width: 100%; /* 원본 크기의 70% */
+}
+
+#modal-subject {
+	text-align: center;	
+}
+
+/* 닫기 버튼 */
+.close {
+	color: #aaa;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+}
+
+.close:hover, .close:focus {
+	color: black;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+/* 모달창 띄웠을 시 body 영역의 스크롤바 삭제 */
+.not_scroll{
+   	overflow: hidden;
+}
+
+#adminMovieSearch{
+	margin-left : 5px;
+}
+
+#reviewDlt{
+display: inline-block; 
+position: relative; 
+margin: auto;
+height: 10px;
+}

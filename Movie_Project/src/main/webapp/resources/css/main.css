@@ -1,0 +1,373 @@
+@charset "UTF-8";
+
+/* =============== 영화 트레일러 ==================== */
+.main_trailer_area {
+	height: 465px;
+/* 	min-width: 960px; */
+	background: #000000;
+	overflow: hidden;
+	position: relative;
+	text-align: center;
+}
+/* 트레일러 배경안의 영역 지정 */
+.main_trailer_area .trailer_wrap {
+    width: 960px;
+    height: 100%;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%,0);
+}
+
+/* 트레일러의 타이틀 */
+.main_trailer_area #trailer_title {
+    position: absolute;
+    font-weight: 900;
+    font-size: 40px;
+    width: 500px;
+    max-height: 465px;
+    top: 55%;
+    left: 5%;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #ffffff;
+    z-index: 5;
+}
+
+/* 그라데이션 효과를 위한 영역 범위 지정 */
+.trailer_content {
+	width: 100%;
+	height: 100%;	
+	position: absolute;
+	overflow: hidden;
+}
+
+/* 트레일러 위에 그라데이션 효과 */
+.trailer_wrap .trailer_content::before {
+	content: '';
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	background-image: linear-gradient(to right, #000 0%, rgba(0, 0, 0, 0.25) 25%, rgba(0, 0, 0, 0) 50%,rgba(0, 0, 0, 0.25) 75%, #000 100%);
+	z-index: 2;
+}
+
+/* 트레일러 영상 영역 */
+.main_trailer_area #main_trailer {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transform: scale(1.35);
+}
+
+/* 트레일러 컨트롤러 */
+.main_trailer_area #trailer_controller {
+    position: absolute;
+    top: 70%;
+    left: 5%;
+    display: flex; /* flex 속성으로 만들기 */
+	align-items: center; /* flex 요소의 수평정렬 */
+	z-index: 5;
+}
+
+/* 트레일러 상세보기 아이콘 */
+#trailer_controller #detailBtn {
+	border: 3px solid;
+	border-radius: 10px;
+    color: #fff;
+    padding: 5px 15px;
+    cursor: pointer;
+}
+
+/* 트레일러 컨트롤러 아이콘 */
+#trailer_controller i {
+    font-size: 30px;
+    color: #fff;
+    padding: 15px;
+    cursor: pointer;
+}
+
+/* =============== 본문 ==================== */
+
+
+#content {
+	position: relative;
+}
+
+
+/* 버튼 메뉴 설정 */
+
+#content ul {
+	text-align: center;
+}
+
+#Sort {
+	text-align: center;
+	margin-left: -40px;
+}
+
+#Sort li {
+	display: inline-block;
+	width: 160px;
+	height: 50px;
+	text-align: center;
+	line-height: 30px;
+	margin: 10px;
+}
+
+#Sort input {
+	border: none;
+	border-bottom: 3px solid #433581;
+	color: #000000; /* 글자 색상 */
+	padding: 10px 50px; /* 영역의 상하 좌우 크기 */
+	margin-top: 10px;
+	background-color: #ffffff;
+	cursor: pointer; /* 커서 변경 */
+}
+
+#Sort .active {
+	background-color: #eeeeee;
+	border: none;
+	border-bottom: 3px solid #000000;
+	color: #000000; /* 글자 색상 */
+	padding: 10px 40px; /* 영역의 상하 좌우 크기 */
+	cursor: pointer; /* 커서 변경 */
+}
+
+#Sort input:hover {
+	background-color: #eeeeee;
+	border-bottom: 3px solid #000000;
+}
+
+/* 영화 목록 전체보기 버튼 */
+#moviePage input {
+	border: none;
+/* 	border-bottom: 3px solid #433581; */
+	color: #ffffff; /* 글자 색상 */
+	padding: 5px 10px; /* 영역의 상하 좌우 크기 */
+	margin-top: 10px;
+	background-color: #433581;
+	cursor: pointer; /* 커서 변경 */
+	transform: translate(30px,0);
+}
+
+#moviePage input:hover {
+	background-color: #331f62;
+}
+#storePage input {
+	border: none;
+/* 	border-bottom: 3px solid #433581; */
+	color: #ffffff; /* 글자 색상 */
+	padding: 5px 10px; /* 영역의 상하 좌우 크기 */
+	margin-top: 10px;
+	background-color: #433581;
+	cursor: pointer; /* 커서 변경 */
+	transform: translate(30px,0);
+	display: inline-block;
+	position: relative;
+	right : 37em;
+}
+
+#storePage input:hover {
+	background-color: #331f62;	
+}
+
+#boxoffice {
+	position: relative;
+	left: 20px;
+	text-align: center;
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0 auto; /* 상하 0px 좌우 자동 정렬*/
+	margin-bottom: 100px;
+	/*
+	flex-wrap 속성은
+	나열된 (정렬된)  요소들의 총 넓이가 부모 넓이보다 클때, 이 요소들을 다음 줄에 이어서 나열 해 주는 기능
+	display: flex;와 함께 기재 해야함!
+	
+	만약 이 속성 사용하지 않으면 기본값으로 flex-wrap:nowrap;이 적용됨
+	이 정렬된 (나열된) 요소들의 넓이는 부모 넓이에 맞게 모두 자동 축소또는 확장됨!
+	
+	쉽게 말해서 이거 없애면 아래 포스터들 크기 다 지맘대로 되는것 같음!!!!
+	*/
+}
+#boxoffice div{ /* 영화 포스터 크기와 정렬에 관한 설정*/
+/* 	position: relative; 현재위치 기준 정렬 */
+    top: 40px; /* 위에서 아래로 40px*/
+    left: 10px;
+     /* 왼쪽에서 오른쪽으로 10% 움직임*/
+    /*임의로 크기를 정했고, 그리고 API에서 포스터 따오면 수정될 영역임으로
+      원하는데로 크기나 위치 조정해도 됨 */     
+}
+#boxoffice img {
+    width: 180px; 
+    height: 260px; /*포스터 가로 세로 크기설정 (200px, 300px)*/
+    padding: 10px; /* 상하좌우 10px씩 밀어냄*/
+}
+
+#boxoffice input {/* 좋아요 버튼에 대한 설정 */
+	background-color: transparent; /* 배경 투명하게*/
+	color: #000;  /* 무색 */
+	border: none;  /* 테두리 없음 */
+	font-size: 20px; /* 글자 크기 */
+	cursor: pointer; /* 마우스 올리면 클릭모양으로 커서 바뀜*/
+}
+
+#boxoffice input:hover {
+	color: red; /* 좋아요 글자에 마우스 가까이 가져가면 빨간색으로 변함*/
+}
+/* 박스오피스 내의 예매 영역 */
+#boxoffice .main_reserve_area input {
+	border: 1px solid;
+	height: 40px;
+	background-color: #433581; /* 버튼 색상 */
+	color: #fff; /* 글자 색상 */
+	font-size: 16px;
+	padding: 0 15px;
+	margin-left: 10px; /* 찜하기 버튼과의 거리 */
+	text-decoration: none; /* 링크의 밑줄 제거 */
+	border-radius: 5px; /* 모서리 라운드처리 */
+	cursor: pointer; /* 커서 변경 */
+	transform: translate(0,1px);
+}
+
+#boxoffice .main_reserve_area input:hover {
+	background-color: #331f62;
+}
+
+
+
+#main_store {
+	text-align: center; /* 각 카테고리별 중앙 정렬 */
+	margin: 80px auto; /* 각 카테고리내 메뉴 사이 간격 */
+}
+
+#main_page {
+	padding-bottom: 100px;
+}
+
+
+.container {
+    max-width: 1024px;
+    margin: 80px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.event-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* ------- 그리드 스타일 목록 -------  */
+.event-section {
+    padding: 20px;
+}
+
+.event-grid {
+    display: grid; /* 그리드 방식 정렬 */
+    grid-template-columns: repeat(4, 1fr); /* 한줄에 4개씩 반복 */
+    grid-gap: 20px; /* 그리드 간격 */
+}
+
+/* 이벤트 항목 */
+.event {
+	border: 1px solid;
+	width: 200px;
+	height: 250px;
+    background-color: #fff;
+/*     padding: 20px; */
+    border-radius: 5px; /* 모서리 라운드 처리 */
+    text-align: center; /* 가운데 정렬 */
+    overflow: hidden;
+    display: table; /* 테이블형식 */
+    cursor: pointer;
+}
+
+.event a {
+    text-decoration: none; /* 링크의 밑줄 제거 */
+    color: inherit; /* 링크의 색상 제거 */
+	
+}
+
+/* 이벤트 항목의 썸네일 */
+.event-image {
+    width: 100%;
+    height: 100%;
+    vertical-align:middle; /* 수직 가운데 정렬 */
+}
+
+.event-image img {
+/* 	width: 220px; */
+/* 	height: 240px; */
+	max-width: 100%;
+}
+
+/* 이벤트 항목의 제목 */
+.event-title {
+    color: inherit; /* 링크의 색상 제거 */
+    font-weight: 800;
+    font-size: 20px;
+    margin: 0 auto;
+}
+
+/* 이벤트 항목의 날짜 */
+.event-date {
+	margin-top: 20px;
+    color: #999;
+    font-size: 14px;
+}
+
+/* ========== 이벤트 항목의 모달창 ========== */
+.modal {
+	display: none; /* 모달창 숨김 */
+	position: fixed; /* 화면 위치 고정 */
+	z-index: 9999; /* 내용 위에 표시 */
+	left: 0;
+	top: 0;
+	width: 100%; /* 전체 너비 */
+	height: 100%; /* 전체 높이 */
+	overflow: auto; /* 모달창에 스크롤 추가 */
+/* 		background-color: rgb(0,0,0); /* 백그라운드 색 */ 
+	background-color: rgba(0,0,0,0.4); /* 약간의 투명도 */
+}
+
+/* 모달 컨텐츠 */
+.modal-content {
+	background-color: #fefefe;
+	margin: 5% auto; /* 페이지 중앙에 위치 */
+	padding: 20px;
+	border: 1px solid #888;
+	border-radius: 20px;
+	width: 50%; /* 대부분의 너비 */
+}
+
+/* 모달 컨텐츠의 이미지 */
+.modal-content img {
+	max-width: 70%; /* 원본 크기의 70% */
+}
+
+/* 닫기 버튼 */
+.close {
+	color: #aaa;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+}
+
+.close:hover, .close:focus {
+	color: black;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+/* 모달창 띄웠을 시 body 영역의 스크롤바 삭제 */
+.not_scroll{
+   	overflow: hidden;
+}
+

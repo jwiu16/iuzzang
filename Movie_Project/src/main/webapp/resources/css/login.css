@@ -1,0 +1,642 @@
+@charset "UTF-8";
+
+/* ================================================= */
+
+#content {
+	text-align: center;
+}
+
+#mypage_nav {
+	display: inline-block;
+	top: 170px;
+	width: 160px;
+	margin: 10px;
+	vertical-align: top;
+}
+
+#buy_list, #my_list{
+	display: inline-block;
+	position: relative;
+}
+
+/* #my_list, #buy_list, #refund_list { */
+/* 	width: 800px; */
+/* 	margin: 10px auto; */
+/* 	padding-bottom: 30px; */
+/* 	position: relative; */
+/* } */
+
+
+h1:not(#popup1_wrapper>h1) { /* 제목영역 */
+	margin-top: 20px; /* 위 띄우기 */
+	margin-bottom: 20px; /* 아래 띄우기 */
+	text-align: center; /* 가운데정렬 */
+	position: relative; /* 포지션 기준 잡기 */
+}
+
+h2 {
+	margin-top: 20px; /* 위 띄우기 */
+	margin-bottom: 20px; /* 아래 띄우기 */
+	text-align: left; /* 가운데정렬 */
+}
+
+form:not(#popup1_form, #sideEdit, #product_X, #reviewDetail) { /* 정보 입력창 */
+	vertical-align: top;
+	display: inline-block;
+	width: 800px; /* 너비 800지정 */
+	margin: 10px;
+	padding-bottom: 100px;
+}
+.mapage_table { /* 정보 입력창 */
+	vertical-align: top;
+	display: inline-block;
+	width: 800px; /* 너비 800지정 */
+	margin: 10px;
+	padding-bottom: 100px;
+}
+
+table:not(#popup1_table) {
+	border-collapse: collapse; /* 칸 사이 간격 없애기 */
+	border-top: 2px solid #9d9d9d; /* 표상단줄 */
+	border-bottom: 2px solid #9d9d9d; /* 표하단줄 */ 
+	width: 800px;
+	margin: 0 auto;
+}
+
+
+input[type="button"], input[type="submit"] { /* 모든 버튼에 */
+	padding: 5px 15px;
+    background-color: #433581;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+input[type="button"]:hover, input[type="submit"]:hover {
+	background-color: #331f62;
+}
+
+input[type="submit"] { /* 등록 버튼에 */
+	text-align: center;
+}
+
+table {
+	border-collapse: collapse; /* 칸 사이 간격 없애기 */
+	border-top: 2px solid #9d9d9d; /* 표상단줄 */
+	border-bottom: 2px solid #9d9d9d; /* 표하단줄 */ 
+	width: 900px;
+	margin: 0 auto;
+}
+
+th {
+	border-bottom: 2px solid #9d9d9d; /* 제목하단줄 */	
+}
+
+
+#MyOneOnOneTable {
+	table-layout: fixed;
+	width: 800px;
+}
+
+#MyOneOnOneTable a {
+  text-decoration: none;
+  color: black;
+}
+
+
+/* -----------------login.jsp css 시작---------------- */
+
+.login_center { /* 입력창부분 */
+	text-align: center; /* 가운데정렬 */
+	width: 500px;
+	margin: 0 auto;
+}
+
+#login_top { /* 회원가입 진행사항 표시부분 */
+	margin: 30px 0; /* 위아래 띄우기 */
+	text-align: center;	/* 가운데정렬 */
+}
+
+#login_button { /* 모든 버튼 */
+	margin: 30px; /* 주변 띄우고 */
+	text-align: center; /* 가운데정렬 */
+}
+
+.login_center>#id, .login_center>#newPasswd,.login_center>#passwd, .login_center>#newPasswd2, #oldPasswd ,.login_center>#member_birth  { /* 비밀번호, 생일에 */
+	border: none; /* 테두리 없애기 */
+	border-bottom: 1.5px solid #AFAFB2; /* 밑줄 */
+	margin: 5px; /*여백*/
+	height: 50px; /* 높이지정 */
+	width: 320px; /* 넓이지정 */
+	font-size: 17px;
+}
+
+.login_center>#name, .login_center>#phone, .login_center>#email { /* 이름, 휴대폰번호, 이메일에 */
+	border: none; /* 테두리 없애기 */
+	border-bottom: 1.5px solid #AFAFB2; /* 밑줄 */
+	margin-bottom: 10px; /* 여백 */
+	height: 50px; /* 높이지정 */
+	width: 320px; /* 넓이지정 */	
+	font-size: 17px;
+}
+
+.login_center>#Certification { /* 이름, 휴대폰번호, 이메일에 */
+	border: none; /* 테두리 없애기 */
+	border-bottom: 1.5px solid #AFAFB2; /* 밑줄 */
+	margin-bottom: 30px; /* 여백 */
+	height: 50px; /* 높이지정 */
+	width: 200px; /* 넓이지정 */	
+	font-size: 17px;
+}
+
+
+#remember_id {
+	text-align: left;
+	margin-left: 90px;
+}
+
+#api { /* API 아이콘 */
+	text-align: center; /* 가운데정렬 */
+	margin: 30px; /* 주변 여백 */
+}
+
+#api>div {
+	display: inline-block;
+	margin-left: 20px;	
+	margin-right: 20px;
+}
+
+/* ----------------- login.jsp css 끝----------------------------- */
+
+/* ----------------- 사이드메뉴 시작------------------------------ */
+
+
+.sidenav {
+	width: 160px; /* 넓이지정 */
+	border-radius: 3px; /* 모서리 둥글게 */
+ 	background-color: #433581; /* 배경색 */
+ 	margin-bottom: 40px;
+ 	border: 2px solid #9d9d9d; /*테두리*/
+}
+
+.sidenav #admin {
+	text-align: center;
+	font-size: 20px;
+	cursor: pointer;
+	padding: 10px;	
+	margin: 0;
+}
+
+#admin>a {
+	text-decoration: none;
+	color: #fff;
+}
+
+/* Style the sidenav links and the dropdown button */
+.dropdown-btn {
+	font-size: 20px;
+	background-color: #a79ed6;
+	color: #ffffff;
+	display: block;
+	border: none;
+	width: 160px;
+	text-align: center;
+	cursor: pointer;
+	outline: none;
+	padding: 10px;
+}
+
+.dropdown-container>a {
+	background-color: #ffffff;
+	text-decoration: none;
+	font-size: 16px;
+	color: #000;
+	display: block;
+	border: none;
+	width: 160px;
+	text-align: center;
+	cursor: pointer;
+	outline: none;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin-left: -8px;
+}
+
+#sideEdit >a{
+	background-color: #ffffff;
+	text-decoration: none;
+	font-size: 16px;
+	color: #000;
+	display: block;
+	border: none;
+	width: 160px;
+	text-align: center;
+	cursor: pointer;
+	outline: none;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin-left: -8px;
+}
+
+
+/* On mouse-over */
+.sidenav a:hover, .dropdown-btn:hover {
+	color: #000000;
+}
+
+/* Add an active class to the active dropdown button */
+.active {
+	background-color: #433581;
+	color: black;
+}
+
+/* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
+.dropdown-container {
+	display: none;
+	padding-left: 8px;
+}
+
+/* Optional: Style the caret down icon */
+.fa-caret-down {
+	float: right;
+	padding-right: 8px;
+}
+
+
+/* ----------------- 사이드메뉴 끝------------------------------ */
+
+/* ----------------- Mypage.jsp css 시작----------------------------- */
+
+
+#pageNum { /* 페이지번호 전체 영역 */
+	 text-align: center; /* 가운데정렬 */
+	 margin: 15px auto; /* 여백 */
+}
+
+#pageNum>input[type="button"] { /* 공지사항과 자주묻는 페이지번호 */
+	 width: 20px; /* 버튼 너비 지정 */
+	 padding: 5px 0;
+}
+
+#pageNum>a {
+	color: #000000;
+	text-decoration: none;
+	font-size: 18px;
+	margin: 5px 8px;
+}
+
+/* ----------------- Mypage.jsp css 끝----------------------------- */
+
+/* ----------------- login.jsp css 시작----------------------------- */
+
+#login_button1{
+	width: 330px;
+	height: 50px;
+	font-size: 20px;
+	margin: 10px;
+}
+
+#login_top { /* 회원가입 진행사항 표시부분 */
+	margin: 30px 0; /* 위아래 띄우기 */
+	text-align: center;	/* 가운데정렬 */
+}
+
+#move_menu a { /* 하이퍼링크에 */
+	text-decoration: none; /* 밑줄 없애기 */	
+	color: #000000; /* 글씨 색깔 변경 */
+	margin: 10px;
+}
+
+/* ----------------- login.jsp css 끝----------------------------- */
+
+/* ----------------- reservation.jsp css 시작----------------------------- */
+
+.cancle {
+	position: absolute;
+	margin-right: 10px;
+	padding: 0;
+	width: 120px;
+	left: 670px;
+}
+
+
+/* ----------------- popup.jsp css 시작----------------------------- */
+
+#popup1_table{
+	width: 500px;
+	margin: auto;
+}
+
+#popup1_table tr{
+	height: 50px;
+}
+
+#payX{
+	text-align: center;
+}
+
+h1{
+	margin: auto;
+	text-align: center;
+}
+
+#popup1_wrapper{
+	margin:auto;
+	width: 500px;
+	height: 500px;
+}
+
+
+/* ----------------- popup.jsp css 끝----------------------------- */
+#edite{
+	float: right;
+}
+
+
+
+/* ------------------- 마이페이지 ----------------------------- */
+/* 페이지번호 */
+.pagination {
+	padding: 0px 0 0 320px;
+	text-align: center;
+}
+
+
+.pagination a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color .3s;
+}
+
+/* Style the active/current link */
+.pagination a.active {
+  background-color: ff0000;
+  color: white;
+}
+
+/* Add a grey background color on mouse-over */
+.pagination a:hover:not(.active) {background-color: #ddd;}
+
+
+/* ------------------- 아이디, 비밀번호 찾기 ----------------------------- */
+
+ /* 패스워드 찾기 이메일과 인증번호 */
+#findArea .AuthMail {
+	border: none; /* 테두리 없애기 */
+	border-bottom: 1.5px solid #AFAFB2; /* 밑줄 */
+ 	margin-bottom: 20px; /* 여백 */
+	height: 50px; /* 높이지정 */
+	width: 200px; /* 넓이지정 */	
+	font-size: 17px;
+}
+#findArea .Certification {
+	border: none; /* 테두리 없애기 */
+	border-bottom: 1.5px solid #AFAFB2; /* 밑줄 */
+/* 	margin-bottom: 20px; 여백 */
+	height: 50px; /* 높이지정 */
+	width: 320px; /* 넓이지정 */	
+	font-size: 17px;
+}
+
+#findArea div {
+	font-size: 14px;
+	height: 20px;
+	margin-bottom: 15px;
+}
+
+#findArea #newPasswd, #findArea #newPasswd2 {
+	font-size: 12px;
+}
+
+.login_find {
+	text-align: center;
+	
+}
+.login_find ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+/* 분류 항목 설정 */
+.login_find ul li {
+    display: inline-block;
+	margin-bottom: 20px;
+    text-decoration: none; /* 링크의 밑줄 제거 */
+}
+
+.login_find input {
+	border: none;
+	border-bottom: 3px solid #433581;
+	height: 50px;
+	color: #000000; /* 글자 색상 */
+	padding: 10px 50px; /* 영역의 상하 좌우 크기 */
+	margin-top: 10px;
+	background-color: #ffffff;
+	cursor: pointer; /* 커서 변경 */
+}
+
+.login_find input:hover {
+	background-color: #eeeeee;
+	border-bottom: 3px solid #000000;
+}
+
+.login_find a {
+    text-decoration: none; /* 링크의 밑줄 제거 */
+    color: inherit; /* 링크의 색상 제거 */
+}
+
+#login_button { /* 모든 버튼 */
+	margin: 30px; /* 주변 띄우고 */
+	text-align: center; /* 가운데정렬 */
+	padding: 10px;
+}
+
+/* ------------ 아이디 찾기 모달창 -------------- */
+.modal {
+	display: none; /* 모달창 숨김 */
+	position: fixed; /* 화면 위치 고정 */
+	z-index: 9999; /* 내용 위에 표시 */
+	left: 0;
+	top: 0;
+	width: 100%; /* 전체 너비 */
+	height: 100%; /* 전체 높이 */
+	overflow: hidden;
+/* 		background-color: rgb(0,0,0); /* 백그라운드 색 */ 
+	background-color: rgba(0,0,0,0.4); /* 약간의 투명도 */
+}
+
+/* 모달 컨텐츠 */
+.modal-content {
+	background-color: #fefefe;
+	margin: 20% auto; /* 페이지 중앙에 위치 */
+	padding: 20px;
+	border: 1px solid #888;
+	border-radius: 20px;
+	width: 300px; /* 모달창의 너비 */
+	height: 200px;
+}
+
+#modal-subject {
+	margin-top: 50px;
+}
+
+/* 닫기 버튼 */
+.close {
+	color: #aaa;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+}
+
+.close:hover, .close:focus {
+	color: black;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+/* 모달창 띄웠을 시 body 영역의 스크롤바 삭제 */
+.not_scroll{
+   	overflow: hidden;
+}
+
+
+
+/* =========== 분실물 게시판 ====================== */
+table {
+	border-collapse: collapse; /* 칸 사이 간격 없애기 */
+	border-top: 2px solid #9d9d9d; /* 표상단줄 */
+	border-bottom: 2px solid #9d9d9d; /* 표하단줄 */ 
+	width: 800px;
+	margin: 0 auto;
+}
+
+th {
+	border-bottom: 2px solid #9d9d9d; /* 제목하단줄 */	
+}
+
+
+#login_table2 th { /* 분실물문의, 1대1질문 테이블 제목에 */
+	background-color: #f2f2f2; /* 제목 배경색 지정 */
+	padding: 5px 10px; /* 안쪽 여백 지정 */
+	border-bottom: 1px solid #9d9d9d;
+	text-align: center;
+}
+
+#login_table2 td { /* 분실물문의, 1대1질문 테이블에 */
+	padding: 5px 10px; /* 안쪽 여백 지정 */
+	border-bottom: 1px solid #9d9d9d;
+	text-align: left;
+/* 	width: 36%; */
+}
+
+#login_table2  b { /* 제목 옆 필수항목 *표시 */
+	color: #ff0000; /* 글자 빨간색 */
+}
+
+
+#input_table { /* 문의 입력창 테이블 전체 */
+	margin-top: 20px; /* 상단여백 */
+	border: 0; /* 테두리 없음 */
+}
+
+#id { /* 아이디 입력창에 */
+	border: none; /* 테두리 없애기 */
+	border-bottom: 1.5px solid #9d9d9d; /* 밑줄 */
+	margin: 10px; /* 여백 */
+	height: 30px; /* 높이지정 */
+	width: 250px; /* 넓이지정 */
+}
+
+#title, #file { /* 제목, 파일등록창에 */
+	border: none; /* 테두리 없애기 */
+	border-bottom: 1.5px solid #9d9d9d; /* 밑줄 */
+	margin: 10px; /* 여백 */
+	height: 30px; /* 높이지정 */
+	width: 550px; /* 넓이지정 */
+}
+
+select, input[type="datetime-local"] { /* 셀렉트박스와 날짜선택창에 */
+	border: none; /* 테두리 없애기 */
+	border-bottom: 1.5px solid #9d9d9d; /* 밑줄 */
+	margin: 10px; /* 여백 */
+	height: 30px; /* 높이지정 */
+	width: 250px; /* 넓이지정 */
+}	
+
+/* ================================= 1대1문의 내역 =========================================== */
+#MyOneOnOneTable {
+	table-layout: fixed;
+	width: 800px;
+}
+
+#MyOneOnOneTable th {
+	color: #000000;
+	background-color: #f2f2f2; /* 제목 배경색 지정 */
+	padding: 5px 10px; /* 안쪽 여백 지정 */
+	border-bottom: 1px solid #9d9d9d; /* 제목 아래 얇은 실선 */
+	text-align: center;
+}
+
+#MyOneOnOneTable td {
+	padding: 5px 10px; /* 안쪽 여백 지정 */
+	border-bottom: 1px solid #9d9d9d; /* 행마다 얇은 실선 */
+	text-align: center;
+}
+#gender {
+	display: inline-block;
+   	text-align: center;
+   	height: 40px;
+}
+
+#gender input[type=radio]{
+    display: none;
+}
+
+#gender input[type=radio]+label{
+    display: inline-block;
+    cursor: pointer;
+    height: 35px;
+    width: 300px;
+    margin: 5px 0;
+    border: 1px solid #333;
+    text-align: center;
+    font-weight:bold;
+    font-size:17px;
+    line-height: 35px;
+}
+
+#gender input[type=radio]+label{
+    background-color: #fff;
+    color: #AFAFB2;
+}
+
+#gender input[type=radio]:checked+label{
+    background-color: #eeeeee;
+    color: #000;
+}
+
+#oneOnOneReplyArea {
+    color: #AFAFB2;
+}
+
+#MyOneOnOneSubject {
+	text-align: left !important;
+}
+#myLostBoardList{
+	text-align: left !important;
+}
+
+
+#admin_sub {
+	display: inline-block;
+	position: relative;
+	margin: auto;
+/* 	left: 6em; */
+}
+
+#myPageBottomArea{
+	text-align: center;
+	padding-left: 90px;
+}
